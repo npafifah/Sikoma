@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Melawan Anxiety di Kampus - SIKOMA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+
+  <!-- Emergency Button (copy dari index) -->
+  <button class="emergency-btn" id="emergencyBtn">
+    <i class="emoji">🚨</i> Butuh Bantuan Cepat?
+  </button>
+
+  <!-- Modal Emergency (copy dari index) -->
+  <div class="modal" id="emergencyModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeEmergencyModal">&times;</span>
+      <h2>Bantuan Darurat</h2>
+      <p>Jika Anda atau seseorang yang Anda kenal sedang dalam krisis, silakan hubungi salah satu layanan berikut:</p>
+      <div class="emergency-contacts">
+        <div class="contact-card">
+          <h3>Layanan Psikologi Darurat</h3>
+          <p><strong>Telepon:</strong> 119</p>
+          <p><strong>WhatsApp:</strong> 0812-3456-7890</p>
+        </div>
+        <div class="contact-card">
+          <h3>Rumah Sakit Jiwa Terdekat</h3>
+          <p><strong>RSJ Provinsi:</strong> (021) 1234567</p>
+        </div>
+        <div class="contact-card">
+          <h3>Layanan Konseling Kampus</h3>
+          <p><strong>Universitas Anda:</strong> Hubungi bagian Bimbingan Konseling</p>
+        </div>
+      </div>
+      <p class="tip-box">Anda tidak sendirian. Bantuan tersedia dan pemulihan mungkin terjadi.</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="assets/img/sikoma logo.png" alt="Logo SIKOMA" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tes.html">Tes</a></li>
+          <li><a href="edukasi.html">Edukasi</a></li>
+          <li><a href="cerita.html" class="active">Cerita</a></li>
+          <li><a href="komunitas.html">Komunitas</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten Cerita -->
+  <section class="container cerita-lengkap fade-in">
+    <h1>Melawan Anxiety di Kampus</h1>
+    <p class="author">Oleh: Anonim, Mahasiswa Teknik</p>
+    
+    <p>Aku selalu merasa semua orang memperhatikan dan menilai setiap gerak-gerikku. Setiap presentasi menjadi mimpi buruk. Bahkan aku sempat bolos selama seminggu karena tidak sanggup menghadapi tatapan teman-teman.</p>
+    
+    <p>Sampai akhirnya aku memberanikan diri datang ke konselor kampus. Awalnya takut, tapi ternyata sangat membantu. Aku belajar mengenali pola pikirku, mengenali kecemasan sebagai sesuatu yang bisa dikelola.</p>
+    
+    <p>Perlahan, aku mulai bisa tampil di kelas lagi. Aku masih sering cemas, tapi sekarang aku tahu bahwa aku tidak sendirian dan bantuan itu nyata.</p>
+    
+    <p class="tip-box">💡 Tidak apa-apa untuk minta bantuan. Memulai langkah kecil bisa membawa perubahan besar.</p>
+
+    <div class="center-text">
+      <a href="cerita.html" class="btn btn-secondary">⬅ Kembali ke Cerita Lainnya</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-logo">SIKOMA</h3>
+          <p>Sistem Komunitas Mandiri untuk Kesehatan Mental</p>
+          <div class="social-links">
+            <a href="#"><i class="emoji">📱</i> Instagram</a>
+            <a href="#"><i class="emoji">💬</i> WhatsApp</a>
+            <a href="#"><i class="emoji">📧</i> Email</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Navigasi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tes.html">Tes Kesehatan Mental</a></li>
+            <li><a href="edukasi.html">Artikel & Edukasi</a></li>
+            <li><a href="lokasi.html">Cari Bantuan</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Dukungan</h3>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Kontak Darurat</h3>
+          <ul class="emergency-contacts">
+            <li><strong>119</strong> - Layanan Darurat</li>
+            <li><strong>021-500454</strong> - Into The Light</li>
+            <li><strong>0812-3456-7890</strong> - SIKOMA Support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SIKOMA. Semua Hak Dilindungi.</p>
+        <p>Dibuat dengan <span class="emoji">❤️</span> untuk kesehatan mental Indonesia</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Emergency Button & Modal -->
+  <script>
+    window.addEventListener('load', function() {
+      document.querySelector('.preloader')?.style.display = 'none';
+    });
+
+    document.getElementById('emergencyBtn').addEventListener('click', function() {
+      const isEmergency = confirm("Apakah Anda benar-benar membutuhkan bantuan darurat?");
+      if (isEmergency) {
+        document.getElementById('emergencyModal').style.display = 'flex';
+      }
+    });
+
+    document.getElementById('closeEmergencyModal').addEventListener('click', function() {
+      document.getElementById('emergencyModal').style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == document.getElementById('emergencyModal')) {
+        document.getElementById('emergencyModal').style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

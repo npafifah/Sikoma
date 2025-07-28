@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tes Stres – SIKOMA</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <style>
+    .quiz-container {
+      max-width: 720px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .quiz-container h2 {
+      margin-bottom: 20px;
+      color: #4f709c;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .answers button {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 20px;
+      width: 100%;
+      max-width: 400px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f0f6ff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .answers button:hover {
+      background: #dceeff;
+    }
+
+    .navigation {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .result {
+      font-size: 1.2rem;
+      margin-top: 30px;
+    }
+
+    .cta-button {
+      background-color: #4f709c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #3d5a7b;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-bar">
+    <div class="container flex-between">
+      <div class="logo">
+        <img src="assets/img/sikoma.png" alt="Logo SIKOMA" />
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="tes.html" class="active">Tes</a>
+        <a href="edukasi.html">Edukasi</a>
+        <a href="cerita.html">Cerita</a>
+        <a href="jurnal.html">Jurnal</a>
+        <a href="bantuan.html">Bantuan</a>
+        <a href="tentang.html">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="quiz-container fade-in">
+    <h2>🧠 Tes Stres – PSS-10</h2>
+    <div id="question-container">
+      <p class="question">Memuat pertanyaan...</p>
+      <div class="answers"></div>
+    </div>
+
+    <div class="navigation">
+      <button id="prev-btn" class="cta-button" disabled>&larr; Kembali</button>
+      <button id="next-btn" class="cta-button">Selanjutnya &rarr;</button>
+    </div>
+
+    <div class="result" id="result" style="display:none;"></div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SIKOMA – Sistem Komunitas Mandiri.</p>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      "Dalam sebulan terakhir, seberapa sering Anda merasa bahwa Anda tidak dapat mengendalikan hal-hal penting dalam hidup Anda?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa gugup dan stres?",
+      "Dalam sebulan terakhir, seberapa sering Anda berhasil mengatasi gangguan kecil dalam hidup Anda?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa yakin dengan kemampuan Anda untuk menangani masalah pribadi?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa bahwa segala sesuatu berjalan sesuai keinginan Anda?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa bahwa kesulitan menumpuk begitu banyak sehingga Anda tidak bisa mengatasinya?",
+      "Dalam sebulan terakhir, seberapa sering Anda dapat mengontrol gangguan yang mengganggu hidup Anda?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa bahwa Anda mengendalikan waktu Anda dengan baik?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa kesal karena hal-hal yang terjadi di luar kendali Anda?",
+      "Dalam sebulan terakhir, seberapa sering Anda merasa bahwa kesulitan menumpuk sedemikian rupa sehingga Anda tidak dapat mengatasinya?"
+    ];
+
+    const scores = Array(questions.length).fill(null);
+    const options = ["Tidak Pernah", "Jarang", "Kadang-kadang", "Sering", "Sangat Sering"];
+    let current = 0;
+
+    const questionEl = document.querySelector('.question');
+    const answersEl = document.querySelector('.answers');
+    const resultEl = document.getElementById('result');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    function renderQuestion() {
+      questionEl.textContent = questions[current];
+      answersEl.innerHTML = "";
+      options.forEach((opt, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => {
+          scores[current] = index;
+          if (current < questions.length - 1) {
+            current++;
+            renderQuestion();
+          } else {
+            showResult();
+          }
+        };
+        answersEl.appendChild(btn);
+      });
+
+      prevBtn.disabled = current === 0;
+      nextBtn.textContent = current === questions.length - 1 ? "Selesai" : "Selanjutnya →";
+    }
+
+    function showResult() {
+      const total = scores.reduce((sum, val) => sum + (val ?? 0), 0);
+      let message = "";
+
+      if (total <= 13) {
+        message = "Tingkat stres rendah. Terus jaga kebiasaan sehat Anda.";
+      } else if (total <= 26) {
+        message = "Tingkat stres sedang. Coba lakukan teknik relaksasi dan manajemen waktu.";
+      } else {
+        message = "Tingkat stres tinggi. Disarankan berkonsultasi dengan ahli atau konselor.";
+      }
+
+      document.getElementById("question-container").style.display = "none";
+      nextBtn.style.display = "none";
+      prevBtn.style.display = "none";
+      resultEl.style.display = "block";
+      resultEl.innerHTML = `<p><strong>Skor Anda:</strong> ${total} / 40</p><p>${message}</p>`;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (current > 0) {
+        current--;
+        renderQuestion();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (scores[current] != null) {
+        if (current < questions.length - 1) {
+          current++;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      } else {
+        alert("Silakan pilih jawaban terlebih dahulu.");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", renderQuestion);
+  </script>
+
+</body>
+</html>

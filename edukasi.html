@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Edukasi – SIKOMA</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <style>
+    /* Additional Styles for Education Page */
+    .education-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    
+    .education-intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .education-intro p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    
+    .module-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .category-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: var(--light-gray);
+      color: var(--dark);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .category-btn.active, .category-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    
+    .module-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .module-image {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .module-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .module-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    .module-content p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .module-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    
+    .module-duration {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #4B4DED;
+    }
+    
+    .testimonial-section {
+      background-color: var(--light-gray);
+      padding: 50px 0;
+      margin: 40px 0;
+    }
+    
+    .testimonial-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .testimonial-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    @media (max-width: 768px) {
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .education-intro h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header-bar">
+    <div class="container flex-between">
+      <div class="logo">
+        <img src="assets/img/sikoma.png" alt="Logo SIKOMA" />
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="tes.html">Tes</a>
+        <a href="edukasi.html" class="active">Edukasi</a>
+        <a href="cerita.html">Cerita</a>
+        <a href="komunitas.html">Komunitas</a>
+        <a href="tentang.html">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="edukasi-full fade-in";>
+    <div class="education-intro">
+      <h1>📚 Modul Edukasi Kesehatan Mental 📚</h1>
+      <p>Pelajari topik-topik penting tentang kesehatan mental dengan cara yang ringan dan relevan. Semua materi disusun oleh profesional dan telah disesuaikan agar mudah dipahami serta praktis diterapkan dalam kehidupan sehari-hari.</p>
+    </div>
+  </section>
+
+  <!-- MODULE CATEGORIES -->
+  <div class="container">
+    <div class="module-categories">
+      <button class="category-btn active">Semua Topik</button>
+      <button class="category-btn">Stres & Kecemasan</button>
+      <button class="category-btn">Hubungan Sosial</button>
+      <button class="category-btn">Pengembangan Diri</button>
+      <button class="category-btn">Kesehatan Emosional</button>
+    </div>
+  </div>
+
+  <!-- EDUKASI CARD LIST -->
+  <section class="fitur fade-in">
+    <div class="container">
+      <div class="module-grid">
+        <!-- Existing Modules -->
+        <div class="module-card">
+          <div class="module-image" style="background-color: #FFE0E5; background-image: url('assets/img/stres-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>🧠 Memahami Stres</h3>
+            <p>Kenali apa itu stres, bagaimana gejalanya, dan cara sederhana mengelolanya dalam kehidupan sehari-hari. Pelajari teknik dasar untuk mengurangi dampak stres.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 15 menit</span>
+              <a href="assets/pdf/stres.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-card">
+          <div class="module-image" style="background-color: #FFF2E0; background-image: url('assets/img/burnout-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>🔥 Burnout & Solusinya</h3>
+            <p>Apa bedanya stres dan burnout? Pelajari tanda-tandanya dan strategi efektif untuk pulih dari kelelahan emosional dan fisik.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 20 menit</span>
+              <a href="assets/pdf/burnout.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-card">
+          <div class="module-image" style="background-color: #E0F7FA; background-image: url('assets/img/emosi-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>🌈 Kecerdasan Emosional</h3>
+            <p>Emosi tidak salah. Pelajari cara memahami, menerima, dan mengelola perasaanmu dengan lebih bijak untuk kehidupan yang lebih seimbang.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 25 menit</span>
+              <a href="assets/pdf/emosi.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- New Modules -->
+        <div class="module-card">
+          <div class="module-image" style="background-color: #E8F5E9; background-image: url('assets/img/mindfulness-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>🎯 Praktik Mindfulness</h3>
+            <p>Latih kesadaran penuh agar kamu lebih tenang, fokus, dan tidak mudah terdistraksi oleh pikiran yang mengganggu.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 30 menit</span>
+              <a href="assets/pdf/mindfulness.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-card">
+          <div class="module-image" style="background-color: #F3E5F5; background-image: url('assets/img/toxic-positivity-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>💬 Bahaya Toxic Positivity</h3>
+            <p>Pahami mengapa selalu "positive thinking" tidak selalu sehat dan bagaimana mendorong empati yang lebih autentik.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 18 menit</span>
+              <a href="assets/pdf/toxic-positivity.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-card">
+          <div class="module-image" style="background-color: #E0F7F4; background-image: url('assets/img/self-care-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>📓 Self-Care Holistik</h3>
+            <p>Bukan cuma skincare. Temukan cara merawat pikiran, waktu, dan energi dengan pendekatan yang menyeluruh.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 22 menit</span>
+              <a href="assets/pdf/self-care.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Mental Health Modules -->
+        <div class="module-card">
+          <div class="module-image" style="background-color: #E3F2FD; background-image: url('assets/img/anxiety-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>🌀 Mengelola Kecemasan</h3>
+            <p>Teknik praktis untuk mengatasi serangan panik dan kecemasan berlebihan dalam situasi sehari-hari.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 28 menit</span>
+              <a href="assets/pdf/kecemasan.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-card">
+          <div class="module-image" style="background-color: #FFF8E1; background-image: url('assets/img/sleep-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>🌙 Kebersihan Tidur</h3>
+            <p>Panduan lengkap untuk meningkatkan kualitas tidur dan mengatasi insomnia dengan metode alami.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 20 menit</span>
+              <a href="assets/pdf/tidur.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-card">
+          <div class="module-image" style="background-color: #F1F8E9; background-image: url('assets/img/relationship-illustration.svg');"></div>
+          <div class="module-content">
+            <h3>💞 Komunikasi Sehat</h3>
+            <p>Bagaimana membangun hubungan yang sehat dengan orang terdekat dan menetapkan batasan yang jelas.</p>
+            <div class="module-meta">
+              <span class="module-duration">⏱️ 25 menit</span>
+              <a href="assets/pdf/komunikasi.pdf" target="_blank" class="cta-button">Baca Modul</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL SECTION -->
+  <section class="testimonial-section">
+    <div class="container testimonial-container">
+      <h2>Apa Kata Mereka?</h2>
+      <p class="testimonial-text">"Modul-modul dari SIKOMA sangat membantu saya memahami kondisi mental saya. Penjelasannya mudah dimengerti dan teknik yang diberikan benar-benar bisa dipraktikkan sehari-hari."</p>
+      <p class="testimonial-author">- Rina, 28 tahun</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-logo">SIKOMA</h3>
+          <p>Sistem Komunitas Mandiri untuk Kesehatan Mental</p>
+          <div class="social-links">
+            <a href="#"><i class="emoji">📱</i> Instagram</a>
+            <a href="#"><i class="emoji">💬</i> WhatsApp</a>
+            <a href="#"><i class="emoji">📧</i> Email</a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Navigasi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tes.html">Tes Kesehatan Mental</a></li>
+            <li><a href="edukasi.html">Artikel & Edukasi</a></li>
+            <li><a href="lokasi.html">Cari Bantuan</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Dukungan</h3>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Kontak Darurat</h3>
+          <ul class="emergency-contacts">
+            <li><strong>119</strong> - Layanan Darurat</li>
+            <li><strong>021-500454</strong> - Into The Light</li>
+            <li><strong>0812-3456-7890</strong> - SIKOMA Support</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 SIKOMA - Sistem Komunitas Mandiri. All rights reserved.</p>
+        <p>Dibuat dengan <span class="emoji">❤️</span> untuk kesehatan mental Indonesia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple category filter functionality
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelector('.category-btn.active').classList.remove('active');
+        this.classList.add('active');
+        // In a real implementation, you would filter modules here
+      });
+    });
+  </script>
+</body>
+</html> 

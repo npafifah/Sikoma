@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIKOMA - Sistem Komunitas Mandiri untuk Kesehatan Mental</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Emergency Button -->
+  <button class="emergency-btn" id="emergencyBtn">
+    <i class="emoji">🚨</i> Butuh Bantuan Cepat?
+  </button>
+
+  <!-- Emergency Modal -->
+  <div class="modal" id="emergencyModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeEmergencyModal">&times;</span>
+      <h2>Bantuan Darurat</h2>
+      <p>Jika Anda atau seseorang yang Anda kenal sedang dalam krisis, silakan hubungi salah satu layanan berikut:</p>
+      <div class="emergency-contacts">
+        <div class="contact-card">
+          <h3>Layanan Psikologi Darurat</h3>
+          <p><strong>Telepon:</strong> 119</p>
+          <p><strong>WhatsApp:</strong> 0812-3456-7890</p>
+        </div>
+        <div class="contact-card">
+          <h3>Rumah Sakit Jiwa Terdekat</h3>
+          <p><strong>RSJ Provinsi:</strong> (021) 1234567</p>
+        </div>
+        <div class="contact-card">
+          <h3>Layanan Konseling Kampus</h3>
+          <p><strong>Universitas Anda:</strong> Hubungi bagian Bimbingan Konseling</p>
+        </div>
+      </div>
+      <p class="tip-box">Anda tidak sendirian. Bantuan tersedia dan pemulihan mungkin terjadi.</p>
+    </div>
+  </div>
+
+
+    <!-- ========== HEADER ========== -->
+    <header class="header-bar">
+    <div class="container flex-between">
+      <div class="logo">
+        <img src="assets/img/sikoma.png" alt="Logo SIKOMA" />
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="active">Beranda</a>
+        <a href="tes.html">Tes</a>
+        <a href="edukasi.html">Edukasi</a>
+        <a href="cerita.html">Cerita</a>
+        <a href="komunitas.html">Komunitas</a>
+        <a href="tentang.html">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== LANDING SECTION ========== -->
+  <section class="landing-section">
+    <div class="landing-content">
+      <h1 class="animate__animated animate__fadeInDown">Selamat Datang di SIKOMA</h1>
+      <p class="animate__animated animate__fadeIn animate__delay-1s">Temukan dukungan dan pemahaman tentang kesehatan mental Anda</p>
+      <a href="#main-content" class="btn btn-primary animate__animated animate__fadeInUp animate__delay-2s scroll-to-content">Mulai Jelajahi</a>
+    </div>
+    <div class="scroll-down animate__animated animate__fadeIn animate__delay-3s">
+      <span></span>
+    </div>
+  </section>
+  
+  <div id="main-content"></div>
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero-full fade-in" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Capek? Bingung? Nggak tahu harus cerita ke siapa?</h1>
+          <p>Kamu nggak sendiri. Yuk mulai dari kenali dirimu, tes ringan, atau cerita bersama kami.</p>
+          <div class="cta-group">
+            <a href="tes.html" class="btn btn-primary">💖 Mulai Tes Sekarang</a>
+            <a href="#forum" class="btn btn-secondary">📖 Saya Ingin Cerita</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/img/mental-ilustrasi.png" alt="Ilustrasi Bahagia" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CERITA INSPIRATIF ========== -->
+    <section class="cerita-slider fade-in">
+      <div class="container center-text">
+        <h2><span class="emoji">📖</span> Cerita Inspiratif</h2>
+        <p class="subtext">
+          Kamu tidak sendirian. Baca kisah nyata dari mereka yang juga pernah merasa lelah, takut, atau kehilangan arah dan berhasil bangkit.
+        </p>
+        <div class="card-group">
+          <div class="card">
+            <h3>Melawan Anxiety di Kampus</h3>
+            <p class="author">Oleh: Anonim, Mahasiswa Teknik</p>
+            <p class="excerpt">"Aku selalu merasa semua orang memperhatikan dan menilai setiap gerak-gerikku. Sampai akhirnya aku memutuskan untuk mencari bantuan..."</p>
+            <a href="cerita-anxiety.html" class="btn btn-secondary">Baca Selengkapnya</a>
+          </div>
+          <div class="card">
+            <h3>Depresi Bukan Akhir Segalanya</h3>
+            <p class="author">Oleh: Rina, Alumni Psikologi</p>
+            <p class="excerpt">"Tiga bulan aku tidak bisa keluar dari kamar. Tapi dengan dukungan yang tepat, aku perlahan menemukan cahaya itu kembali..."</p>
+            <a href="cerita-depresi.html" class="btn btn-secondary">Baca Selengkapnya</a>
+          </div>
+          <div class="card">
+            <h3>Belajar Menerima Diri Sendiri</h3>
+            <p class="author">Oleh: Dito, Mahasiswa FK</p>
+            <p class="excerpt">"Aku selalu merasa tidak cukup baik dibanding teman-temanku. Ternyata masalahku bukan pada kemampuan, tapi pada cara aku memandang diri sendiri..."</p>
+            <a href="cerita-diterima.html" class="btn btn-secondary">Baca Selengkapnya</a>
+          </div>
+        </div>
+        <div class="center-text">
+          <a href="#" class="btn btn-secondary">📖 Lihat Semua Cerita</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TES MANDIRI ========== -->
+    <section class="screening-container fade-in" id="screening">
+      <div class="container">
+        <div id="testContainer" class="hidden">
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          
+          <div id="questionContainer"></div>
+          
+          <div class="nav-buttons">
+            <button id="prevQuestion" class="btn btn-secondary hidden">← Pertanyaan Sebelumnya</button>
+            <button id="nextQuestion" class="btn btn-primary">Pertanyaan Selanjutnya →</button>
+          </div>
+        </div>
+        
+        <div id="resultContainer" class="hidden">
+          <div class="card">
+            <h3>Hasil Tes Anda</h3>
+            <div id="resultContent"></div>
+            <p class="tip-box">Hasil ini bukan diagnosis resmi. Jika Anda merasa membutuhkan bantuan, silakan hubungi profesional.</p>
+            <div class="cta-group">
+              <button onclick="location.reload()" class="btn btn-secondary">Lakukan Tes Lain</button>
+              <a href="#bantuan" class="btn btn-primary">Cari Bantuan Profesional</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== KONDISI MENTAL ========== -->
+    <section class="fade-in" id="kondisi">
+      <div class="container">
+        <h2><span class="emoji">📋</span> Mengenal Kondisi Kesehatan Mental</h2>
+        <p class="subtext">Pelajari tentang berbagai kondisi kesehatan mental, gejala, dan cara penanganannya.</p>
+        
+        <div class="kondisi-grid">
+          <div class="kondisi-card" onclick="showConditionDetail('depresi')">
+            <h3>Depresi</h3>
+            <p>Gangguan mood yang menyebabkan perasaan sedih dan kehilangan minat yang terus-menerus.</p>
+            <span class="tag">Mood</span>
+            <span class="tag">Perawatan</span>
+          </div>
+          <div class="kondisi-card" onclick="showConditionDetail('kecemasan')">
+            <h3>Gangguan Kecemasan</h3>
+            <p>Kekhawatiran atau ketakutan yang berlebihan yang mengganggu aktivitas sehari-hari.</p>
+            <span class="tag">Kecemasan</span>
+            <span class="tag">Terapi</span>
+          </div>
+          <div class="kondisi-card" onclick="showConditionDetail('bipolar')">
+            <h3>Gangguan Bipolar</h3>
+            <p>Perubahan mood ekstrem yang meliputi periode emosi tinggi (mania) dan rendah (depresi).</p>
+            <span class="tag">Mood</span>
+            <span class="tag">Perawatan</span>
+          </div>
+          <div class="kondisi-card" onclick="showConditionDetail('ptsd')">
+            <h3>PTSD</h3>
+            <p>Gangguan stres pasca-trauma yang berkembang setelah peristiwa traumatis.</p>
+            <span class="tag">Trauma</span>
+            <span class="tag">Terapi</span>
+          </div>
+          <div class="kondisi-card" onclick="showConditionDetail('adhd')">
+            <h3>ADHD</h3>
+            <p>Gangguan perkembangan dalam peningkatan aktivitas motorik dan impulsivitas.</p>
+            <span class="tag">Neurodevelopmental</span>
+            <span class="tag">Perawatan</span>
+          </div>
+          <div class="kondisi-card" onclick="showConditionDetail('insomnia')">
+            <h3>Insomnia</h3>
+            <p>Kesulitan tidur atau mempertahankan tidur yang berdampak pada fungsi sehari-hari.</p>
+            <span class="tag">Tidur</span>
+            <span class="tag">Perilaku</span>
+          </div>
+        </div>
+        
+        <div class="center-text">
+          <a href="#" class="btn btn-primary">Lihat Semua Kondisi</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ARTIKEL ========== -->
+    <section class="fade-in" id="artikel">
+      <div class="container">
+        <h2><span class="emoji">📰</span> Artikel & Edukasi</h2>
+        <p class="subtext">Temukan artikel berbasis bukti tentang kesehatan mental dan kesejahteraan psikologis.</p>
+        
+        <div class="artikel-list">
+          <div class="artikel-card">
+            
+            <img src="assets/img/artikel1.jpg" alt="Logo SIKOMA" />
+            <div class="artikel-content">
+              <h3>Apakah Saya Depresi atau Sekadar Sedih?</h3>
+              <p class="artikel-meta">15 Juni 2023 • 5 menit baca</p>
+              <p>Memahami perbedaan antara rasa sedih normal dan gejala depresi klinis yang membutuhkan penanganan.</p>
+              <a href="https://www.alodokter.com/ketahui-perbedaan-sedih-dan-depresi-serta-penanganannya" class="btn btn-secondary">Baca Artikel</a>
+            </div>
+          </div>
+         <div class="artikel-card">
+  <img src="assets/img/artikel2.png" alt="Logo SIKOMA" />
+  <div class="artikel-content">
+    <h3>5 Teknik Meditasi untuk Mengatasi Kecemasan</h3>
+    <p class="artikel-meta">10 Juni 2023 • 4 menit baca</p>
+    <p>Latihan sederhana yang bisa dilakukan di rumah untuk menenangkan pikiran yang cemas.</p>
+    <a href="https://kaltim.idntimes.com/life/inspiration/5-teknik-meditasi-untuk-mengurangi-kecemasan-00-qnqcw-zc1v95" class="btn btn-secondary">Baca Artikel</a>
+  </div>
+</div>
+
+          <div class="artikel-card">
+  <img src="assets/img/artikel3.jpg" alt="Logo SIKOMA" />
+  <div class="artikel-content">
+    <h3>Mengenal Perbedaan Panic Attack dan Anxiety</h3>
+    <p class="artikel-meta">5 Juni 2023 • 6 menit baca</p>
+    <p>Panic attack dan anxiety bagi sebagian besar orang terkesan sama.</p>
+    <a href="https://hellosehat.com/mental/gangguan-kecemasan/perbedaan-panic-attack-anxiety/" class="btn btn-secondary">Baca Artikel</a>
+  </div>
+</div>
+
+        
+        <div class="center-text">
+          <a href="#" class="btn btn-primary">Lihat Semua Artikel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FORUM ========== -->
+    <section class="forum-container fade-in" id="forum">
+      <div class="container">
+        <h2><span class="emoji">💬</span> Forum Komunitas</h2>
+        <p class="subtext">Berbagi pengalaman dan dukungan dengan anggota komunitas lainnya.</p>
+        
+        <div class="forum-thread">
+          <h3>Bagaimana cara mengatasi insomnia karena overthinking?</h3>
+          <div class="thread-meta">
+            <span>Oleh: Anonim</span>
+            <span>2 hari lalu</span>
+          </div>
+          <div class="thread-content">
+            <p>Sudah seminggu ini saya sulit tidur karena terus memikirkan masalah kuliah dan hubungan. Sudah coba minum susu hangat tapi tidak membantu. Ada yang punya pengalaman serupa dan berhasil mengatasinya?</p>
+          </div>
+          <div class="thread-actions">
+            <button class="btn btn-secondary">👍 12</button>
+            <button class="btn btn-secondary">💬 5 Komentar</button>
+          </div>
+        </div>
+        
+        <div class="forum-thread">
+          <h3>Pengalaman pertama konsultasi ke psikolog</h3>
+          <div class="thread-meta">
+            <span>Oleh: Rara</span>
+            <span>1 minggu lalu</span>
+          </div>
+          <div class="thread-content">
+            <p>Hari ini akhirnya saya memberanikan diri untuk konsultasi ke psikolog setelah bertahun-tahun merasa tidak baik-baik saja. Ingin berbagi pengalaman untuk mereka yang masih ragu mencari bantuan profesional.</p>
+          </div>
+          <div class="thread-actions">
+            <button class="btn btn-secondary">👍 34</button>
+            <button class="btn btn-secondary">💬 18 Komentar</button>
+          </div>
+        </div>
+        
+        <div class="reply-form">
+          <h3>Buat Thread Baru</h3>
+          <input type="text" placeholder="Judul Thread" class="form-input">
+          <textarea placeholder="Ceritakan pengalaman atau pertanyaan Anda..."></textarea>
+          <div class="cta-group">
+            <button class="btn btn-secondary">Anonim</button>
+            <button class="btn btn-primary">Posting</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- ========== QUOTE & TIPS HARI INI ========== -->
+    <section class="quote-box fade-in">
+      <div class="container">
+        <h2>💬 Quote & Tips Hari Ini</h2>
+        <blockquote id="quote">
+          "Kesehatan mental bukan tujuan, tapi sebuah perjalanan. Yang penting adalah terus bergerak maju."
+        </blockquote>
+        <div class="tip-box" id="tip-of-the-day">
+          <strong>Tips Hari Ini:</strong> Luangkan 5 menit setiap pagi untuk menulis 3 hal yang Anda syukuri. Kebiasaan sederhana ini dapat meningkatkan mood sepanjang hari.
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3 class="footer-logo">SIKOMA</h3>
+            <p>Sistem Komunitas Mandiri untuk Kesehatan Mental</p>
+            <div class="social-links">
+              <a href="#"><i class="emoji">📱</i> Instagram</a>
+              <a href="#"><i class="emoji">💬</i> WhatsApp</a>
+              <a href="#"><i class="emoji">📧</i> Email</a>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <h3>Navigasi</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tes.html">Tes Kesehatan Mental</a></li>
+              <li><a href="edukasi.html">Artikel & Edukasi</a></li>
+              <li><a href="lokasi.html">Cari Bantuan</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h3>Dukungan</h3>
+            <ul class="footer-links">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+              <li><a href="#">Syarat & Ketentuan</a></li>
+              <li><a href="#">Hubungi Kami</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h3>Kontak Darurat</h3>
+            <ul class="emergency-contacts">
+              <li><strong>119</strong> - Layanan Darurat</li>
+              <li><strong>021-500454</strong> - Into The Light</li>
+              <li><strong>0812-3456-7890</strong> - SIKOMA Support</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2023 SIKOMA - Sistem Komunitas Mandiri. All rights reserved.</p>
+          <p>Dibuat dengan <span class="emoji">❤️</span> untuk kesehatan mental Indonesia</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', function() {
+      document.querySelector('.preloader').style.display = 'none';
+    });
+
+    // Scroll to main content
+    document.querySelector('.scroll-down').addEventListener('click', function() {
+      document.querySelector('#main-content').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    });
+
+    // Emergency button validation
+    document.getElementById('emergencyBtn').addEventListener('click', function() {
+      const isEmergency = confirm("Apakah Anda benar-benar membutuhkan bantuan darurat?");
+      if (isEmergency) {
+        document.getElementById('emergencyModal').style.display = 'flex';
+      }
+    });
+
+    // Close modal
+    document.getElementById('closeEmergencyModal').addEventListener('click', function() {
+      document.getElementById('emergencyModal').style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+      if (event.target == document.getElementById('emergencyModal')) {
+        document.getElementById('emergencyModal').style.display = 'none';
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

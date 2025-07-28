@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerita Inspiratif - SIKOMA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="style/main.css">
+  <style>
+    /* Enhanced Styles for Stories Page */
+    :root {
+      --primary: #5D5FEF;
+      --primary-light: #E0E1FF;
+      --secondary: #FF6584;
+      --dark: #1E1E1E;
+      --gray: #6B7280;
+      --light-gray: #F3F4F6;
+      --white: #FFFFFF;
+    }
+    
+    .stories-hero {
+      background: linear-gradient(135deg, rgba(93, 95, 239, 0.1) 0%, rgba(255, 101, 132, 0.1) 100%);
+      padding: 80px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .stories-hero h1 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      animation: fadeInDown 1s;
+    }
+    
+    .stories-hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .story-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .category-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: var(--light-gray);
+      color: var(--dark);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .category-btn.active, .category-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .stories-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .story-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .story-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .story-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    .story-author {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .story-excerpt {
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    
+    .read-more-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      align-self: flex-start;
+    }
+    
+    .read-more-btn:hover {
+      background-color: #4B4DED;
+    }
+    
+    .testimonial-section {
+      background-color: var(--light-gray);
+      padding: 60px 0;
+      margin: 60px 0;
+      text-align: center;
+    }
+    
+    .testimonial-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 20px;
+    }
+    
+    .share-your-story {
+      background-color: var(--primary);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    
+    .share-your-story h2 {
+      margin-bottom: 20px;
+    }
+    
+    .share-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: white;
+      color: var(--primary);
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .share-btn:hover {
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+      .stories-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .stories-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Emergency Button -->
+  <button class="emergency-btn" id="emergencyBtn">
+    <i class="emoji">🚨</i> Butuh Bantuan Cepat?
+  </button>
+
+  <!-- Emergency Modal -->
+  <div class="modal" id="emergencyModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeEmergencyModal">&times;</span>
+      <h2>Bantuan Darurat</h2>
+      <p>Jika Anda atau seseorang yang Anda kenal sedang dalam krisis, silakan hubungi salah satu layanan berikut:</p>
+      <div class="emergency-contacts">
+        <div class="contact-card">
+          <h3>Layanan Psikologi Darurat</h3>
+          <p><strong>Telepon:</strong> 119</p>
+          <p><strong>WhatsApp:</strong> 0812-3456-7890</p>
+        </div>
+        <div class="contact-card">
+          <h3>Rumah Sakit Jiwa Terdekat</h3>
+          <p><strong>RSJ Provinsi:</strong> (021) 1234567</p>
+        </div>
+        <div class="contact-card">
+          <h3>Layanan Konseling Kampus</h3>
+          <p><strong>Universitas Anda:</strong> Hubungi bagian Bimbingan Konseling</p>
+        </div>
+      </div>
+      <p class="tip-box">Anda tidak sendirian. Bantuan tersedia dan pemulihan mungkin terjadi.</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header-bar">
+    <div class="container flex-between">
+      <div class="logo">
+        <img src="assets/img/sikoma.png" alt="Logo SIKOMA" />
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="tes.html">Tes</a>
+        <a href="edukasi.html">Edukasi</a>
+        <a href="cerita.html" class="active">Cerita</a>
+        <a href="komunitas.html">Komunitas</a>
+        <a href="tentang.html">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="stories-hero animate__animated animate__fadeIn">
+    <div class="container">
+      <h1><span class="emoji">📖</span> Cerita Inspiratif <span class="emoji">📖</span></h1>
+      <p>Kamu tidak sendirian. Temukan kekuatan dalam kisah nyata perjuangan dan pemulihan kesehatan mental dari mereka yang pernah merasakan hal serupa.</p>
+    </div>
+  </section>
+
+  <!-- Story Categories -->
+  <div class="container">
+    <div class="story-categories">
+      <button class="category-btn active">Semua Cerita</button>
+      <button class="category-btn">Kecemasan</button>
+      <button class="category-btn">Depresi</button>
+      <button class="category-btn">Self-Care</button>
+      <button class="category-btn">Pemulihan</button>
+    </div>
+  </div>
+
+  <!-- Stories Grid -->
+  <div class="stories-container">
+    <!-- Existing Stories -->
+    <div class="story-card animate__animated animate__fadeInUp">
+      <div class="story-image" style="background-color: #FFE0E5; background-image: url('assets/img/anxiety-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Melawan Anxiety di Kampus</h3>
+        <p class="story-author">Oleh: Anonim, Mahasiswa Teknik</p>
+        <p class="story-excerpt">"Aku selalu merasa semua orang memperhatikan dan menilai setiap gerak-gerikku. Presentasi kelas menjadi mimpi buruk. Sampai akhirnya aku memutuskan untuk mencari bantuan dan belajar teknik mengelola kecemasan..."</p>
+        <a href="cerita-anxiety.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <div class="story-card animate__animated animate__fadeInUp animate__delay-1s">
+      <div class="story-image" style="background-color: #E0F7FA; background-image: url('assets/img/depression-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Depresi Bukan Akhir Segalanya</h3>
+        <p class="story-author">Oleh: Rina, Alumni Psikologi</p>
+        <p class="story-excerpt">"Tiga bulan aku tidak bisa keluar dari kamar. Dunia terasa gelap tanpa harapan. Tapi dengan dukungan yang tepat, aku perlahan menemukan cahaya itu kembali. Ini perjalanan panjangku..."</p>
+        <a href="cerita-depresi.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <div class="story-card animate__animated animate__fadeInUp animate__delay-2s">
+      <div class="story-image" style="background-color: #FFF2E0; background-image: url('assets/img/selfesteem-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Belajar Menerima Diri Sendiri</h3>
+        <p class="story-author">Oleh: Dito, Mahasiswa FK</p>
+        <p class="story-excerpt">"Aku selalu merasa tidak cukup baik dibanding teman-temanku. Ternyata masalahku bukan pada kemampuan, tapi pada cara aku memandang diri sendiri. Ini kisahku belajar mencintai diri..."</p>
+        <a href="cerita-diterima.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <!-- New Stories -->
+    <div class="story-card">
+      <div class="story-image" style="background-color: #E8F5E9; background-image: url('assets/img/burnout-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Bangkit dari Burnout Akademik</h3>
+        <p class="story-author">Oleh: Sari, Mahasiswa Hukum</p>
+        <p class="story-excerpt">"Aku bekerja terlalu keras sampai lupa istirahat. Sampai suatu hari tubuhku mogok. Ini pelajaran berharga tentang keseimbangan hidup dan belajar mengatakan 'tidak'..."</p>
+        <a href="cerita-burnout.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <div class="story-card">
+      <div class="story-image" style="background-color: #F3E5F5; background-image: url('assets/img/therapy-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Pengalaman Pertama Terapi</h3>
+        <p class="story-author">Oleh: Budi, Karyawan</p>
+        <p class="story-excerpt">"Aku takut dicap 'gila' jika pergi ke psikolog. Ternyata sangat berbeda dari yang kubayangkan. Inilah pengalaman jujurku menjalani konseling pertama kali..."</p>
+        <a href="cerita-terapi.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <div class="story-card">
+      <div class="story-image" style="background-color: #E3F2FD; background-image: url('assets/img/sleep-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Perang Melawan Insomnia</h3>
+        <p class="story-author">Oleh: Anonim, Freelancer</p>
+        <p class="story-excerpt">"Bertahun-tahun aku bergantung pada pil tidur. Sampai akhirnya menemukan rutinitas yang benar-benar membantuku tidur alami. Ini perubahan kecil yang berdampak besar..."</p>
+        <a href="cerita-insomnia.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <div class="story-card">
+      <div class="story-image" style="background-color: #FFF8E1; background-image: url('assets/img/social-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Social Anxiety dan Aku</h3>
+        <p class="story-author">Oleh: Lina, Mahasiswa</p>
+        <p class="story-excerpt">"Keramaian selalu membuatku panik. Tapi aku belajar menghadapinya sedikit demi sedikit. Ini cerita perjalananku dari menghindari orang sampai bisa menghadiri pesta kecil..."</p>
+        <a href="cerita-social.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+    
+    <div class="story-card">
+      <div class="story-image" style="background-color: #F1F8E9; background-image: url('assets/img/recovery-story.jpg');"></div>
+      <div class="story-content">
+        <h3>Pemulihan Setelah Breakdown</h3>
+        <p class="story-author">Oleh: Rudi, Entrepreneur</p>
+        <p class="story-excerpt">"Aku kolaps di tengah meeting penting. Itu menjadi titik balik hidupku. Sekarang aku belajar memprioritaskan kesehatan mental. Inilah pelajaran berharganya..."</p>
+        <a href="cerita-pemulihan.html" class="read-more-btn">Baca Cerita</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonial Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial-content">
+        "Membaca cerita orang lain yang mengalami hal serupa membuatku merasa tidak sendirian. Aku menemukan harapan dan strategi baru untuk mengatasi masalahku."
+      </div>
+      <div class="testimonial-author">- Andi, Pembaca SIKOMA</div>
+    </div>
+  </section>
+
+  <!-- Share Your Story -->
+  <div class="container">
+    <div class="share-your-story">
+      <h2>Bagikan Pengalamanmu</h2>
+      <p>Ceritamu bisa menjadi inspirasi bagi orang lain yang sedang berjuang.</p>
+      <a href="#" class="share-btn">Kirim Ceritamu</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-logo">SIKOMA</h3>
+          <p>Sistem Komunitas Mandiri untuk Kesehatan Mental</p>
+          <div class="social-links">
+            <a href="#"><i class="emoji">📱</i> Instagram</a>
+            <a href="#"><i class="emoji">💬</i> WhatsApp</a>
+            <a href="#"><i class="emoji">📧</i> Email</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Navigasi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tes.html">Tes Kesehatan Mental</a></li>
+            <li><a href="edukasi.html">Artikel & Edukasi</a></li>
+            <li><a href="lokasi.html">Cari Bantuan</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Dukungan</h3>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Kontak Darurat</h3>
+          <ul class="emergency-contacts">
+            <li><strong>119</strong> - Layanan Darurat</li>
+            <li><strong>021-500454</strong> - Into The Light</li>
+            <li><strong>0812-3456-7890</strong> - SIKOMA Support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SIKOMA. Semua Hak Dilindungi.</p>
+        <p>Dibuat dengan <span class="emoji">❤️</span> untuk kesehatan mental Indonesia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Emergency Button
+    document.getElementById('emergencyBtn').addEventListener('click', function () {
+      const confirmEmergency = confirm("Apakah Anda benar-benar membutuhkan bantuan darurat?");
+      if (confirmEmergency) {
+        document.getElementById('emergencyModal').style.display = 'flex';
+      }
+    });
+
+    document.getElementById('closeEmergencyModal').addEventListener('click', function () {
+      document.getElementById('emergencyModal').style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+      if (event.target == document.getElementById('emergencyModal')) {
+        document.getElementById('emergencyModal').style.display = 'none';
+      }
+    });
+
+    // Category Filter
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelector('.category-btn.active').classList.remove('active');
+        this.classList.add('active');
+        // In a real implementation, you would filter stories here
+      });
+    });
+  </script>
+</body>
+</html>
